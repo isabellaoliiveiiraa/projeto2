@@ -1,35 +1,35 @@
-<!DOCTYPE html>
+{% load static %} <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minhas Receitas</title>
-    <script src="https://cdn.tailwindcss.com"></script> <!-- Esta tag serve para importar o Tailwind CSS na sua página web de forma rápida e prática, direto via CDN (Content Delivery Network). -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
-    <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style> 
         body {
             font-family: 'Inter', sans-serif;
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-900"> <!--Este comando HTML e CSS significa que a página terá um fundo cinza claro e texto cinza escuro.-->
-    <!-- Cabeçalho da Página -->
+<body class="bg-gray-100 text-gray-900">
     <header class="bg-gray-900 text-white p-6 shadow-lg rounded-b-lg">
-        <div class="container mx-auto flex flex-col sm:flex-row items-center justify-center"> <!-- Alterado para 'justify-center' para centralizar o conteúdo -->
-            <!-- Agrupamento para o Ícone e Título (Centralizado) -->
+        <div class="container mx-auto flex flex-col sm:flex-row items-center justify-center">
             <div class="flex items-center mb-4 sm:mb-0">
                 <div class="text-4xl mr-4">
-                    <i class="fas fa-utensils"></i> <!-- Ícone de utensílios (faca e garfo) -->
+                    <i class="fas fa-utensils"></i>
                 </div>
-                <!-- Título da Página -->
                 <h1 class="text-4xl font-bold text-center sm:text-left">
                     Minhas Receitas Deliciosas
                 </h1>
             </div>
             <nav class="mt-4 sm:mt-0">
-                <!-- Conteúdo de navegação futuro aqui -->
-            </nav>
+                </nav>
         </div>
     </header>
 
@@ -37,31 +37,70 @@
         <div class="w-full max-w-lg flex bg-white rounded-full shadow-md overflow-hidden">
             <input type="text"
             placeholder="Pesquisar Receitas..."
-            class="flex-grow p-3 text-gray-700 focus: outline-nome focus: ring-2 focus:ring-orange-500 rounded-l-full pl-5">
-            <button class="bg-orange-500 hover:bg-orange-600 text-white p-3 px-6 rouded-r-full transition duration-300 ease-in-out flex items-center justify-center">
+            class="flex-grow p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-l-full pl-5">
+            <button class="bg-orange-500 hover:bg-orange-600 text-white p-3 px-6 rounded-r-full transition duration-300 ease-in-out flex items-center justify-center">
                 <i class="fas fa-search mr-2"></i> Pesquisar
             </button>
         </div>
     </section>
 
-<main class="container mx-auto p-6 mt-8 bg-white rounded-lg shadow-md">
-    <h2 class="text-2x1 font-semibold mb-6 text-center">Nossas Ultimas Receitas</h2>
-    <div class="flex flex-wrap justify-center gap-6">
-        <div class="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
-            <h3 class="text-xl font-bold mb-2 text-gray-800">Receita de Bolo de Chocolate</h3>
-            <p class="text-gray-600 mb-4">Um Bolo Classico, Umido e Delicioso, Perfeito para Qualquer Ocasião</p>
-            <a href="#" class="text-orange-600 hover:text-orange-800 font-semibold">Ver Receita &rarr;</a>
+    <main class="container mx-auto mt-8 p-4">
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Bem-vindo à Sua Página de Receitas!</h2>
+            <p class="text-lg text-gray-700">Aqui Você poderá Organizar e Compartilhar Suas Receitas Favoritas.</p>
+            <p class="mt-4 text-gray-600">Este é o início da sua jornada culinária com o Django.</p>
         </div>
-    </div>
-</main>
 
-    <main class="container mx-auto p-6 mt-8 bg-white rounded-lg shadow-md">
-        <h2 class="text-2xl font-semibold mb-4">Bem-vindo à Sua Pagina de Receitas!</h2>
-        <p class="text-lg text-gray-700">Aqui Você poderá Organizar e Compartilhar Suas Receitas Favoritas.</p>
-        <p class="mt-4 text-gray-600"> Este é o inicio da sua jornada culinaria com o django</p>
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-semibold mb-6 text-center">Nossas Últimas Receitas</h2>
+            <div class="flex flex-wrap justify-center gap-6">
+                <div class="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">Receita de Bolo de Chocolate</h3>
+                    <img src="{% static 'receitas/img/bolo_chocolate.jpg' %}" alt="imagem de Bolo de Chocolate" class="w-full h-48 object-cover rounded-mb mb-4">
+                    <p class="text-gray-600 mb-4">Um bolo clássico, úmido e delicioso, perfeito para qualquer ocasião.</p>
+                    <a href="#" class="text-orange-600 hover:text-orange-800 font-semibold">Ver Receita &rarr;</a>
+                </div>
+
+                <div class="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">Receita de Torta de Limão</h3>
+                    <img src="{% static 'receitas/img/tarta_limao.jpg' %}" alt="imagem de torta de limao" class="w-full h-48 object-cover rounded-mb mb-4">
+                    <p class="text-gray-600 mb-4">Uma receita simples e muito saborosa.</p>
+                    <a href="#" class="text-orange-600 hover:text-orange-800 font-semibold">Ver Receita &rarr;</a>
+                </div>
+
+                <div class="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">Receita de Lasanha</h3>
+                    <img src="{% static 'receitas/img/lasanha.jpg' %}" alt="imagem lasanha" class="w-full h-48 object-cover rounded-mb mb-4">
+                    <p class="text-gray-600 mb-4">Uma receita italiana clássica, recheada com molho de tomate, carne e queijo.</p>
+                    <a href="#" class="text-orange-600 hover:text-orange-800 font-semibold">Ver Receita &rarr;</a>
+                </div>
+
+                <div class="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">Receita de Torta de Chocolate</h3>
+                    <img src="{% static 'receitas/img/torta_chocolate.jpg' %}" alt="imagem de torta de chocolate" class="w-full h-48 object-cover rounded-mb mb-4">
+                    <p class="text-gray-600 mb-4">Uma receita simples e muito saborosa.</p>
+                    <a href="#" class="text-orange-600 hover:text-orange-800 font-semibold">Ver Receita &rarr;</a>
+                </div>
+
+                <div class="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">Receita de Bolo de Cenoura</h3>
+                    <img src="{% static 'receitas/img/bolo.de.cenoura.jpg' %}" alt="imagem de Bolo de cenoura" class="w-full h-48 object-cover rounded-mb mb-4">
+                    <p class="text-gray-600 mb-4">Um bolo clássico, úmido e delicioso, perfeito para qualquer ocasião.</p>
+                    <a href="#" class="text-orange-600 hover:text-orange-800 font-semibold">Ver Receita &rarr;</a>
+                </div>
+
+                <div class="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">Receita de Bolo de Morango</h3>
+                    <img src="{% static 'receitas/img/bolo_morango.jpg' %}" alt="imagem de Bolo de morango" class="w-full h-48 object-cover rounded-mb mb-4">
+                    <p class="text-gray-600 mb-4">Um bolo clássico, úmido e delicioso, perfeito para qualquer ocasião.</p>
+                    <a href="#" class="text-orange-600 hover:text-orange-800 font-semibold">Ver Receita &rarr;</a>
+                </div>
+            </div>
+        </div>
     </main>
 
-    <!--rodapé-->
     <footer class="mt-12 p-6 text-center text-gray-600">
         <p>&copy; 2025 Minhas Receitas. Todos os Direitos Reservados a Isabella.</p>
     </footer>
+</body>
+</html>

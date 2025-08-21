@@ -1,15 +1,16 @@
-from django.shortcuts import render
-from django.http import Http404
+from django.shortcuts import render, get_object_or_404
+from .models import Receita
 
-
-# Create your views here.
 def home(request):
-    return render(request, 'receitas/home.html')
-
-def receita(request, receita_id):
-
+    receitas = Receita.objects.all().order_by('-created_at')
     context = {
-        'receita_id': id,
-        'receita_title': f'receita detalhada{id}',
-        'receita_description': f'esta é a descrição detalhada da receita com id {id}',
+        'receitas': receitas
     }
+    return render(request, 'receitas/home.html', context)
+
+def receita_detail(request, receita_id):
+    receita = get_object_or_404(Receita, pk=receita_id)
+    context = {
+        'receita': receita,
+    }
+    return render(request, 'receitas/receita_detail.html', context)

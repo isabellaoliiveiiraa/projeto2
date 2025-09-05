@@ -1,61 +1,34 @@
-{%extends "receitas/base.html" %}
-{%block content %}
-
-    <main class="container mx-auto p-6 mt-8">
-        
-        <h2 class="text-2xl font-semibold mb-8 text-center text-gray-700">
-            {% if query %}
-                Exibindo resultados para: <strong class="text-orange-600">"{{ query }}"</strong>
-            {% else %}
-                Nenhum termo foi pesquisado.
-            {% endif %}
-        </h2>
-
-        <div class="flex flex-wrap gap-6 justify-center gap-6">
-            {%if resultados %}
-
-            {% for receita in resultados %}
-            <div class="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
-                {%if receita.image %}
-                <img src="{{ receita.image.url }}" alt="Imagem de {{ receita.title }}" class="w-full h-48 object-cover" />
-                {%endif%}
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2 text-gray-900">{{ receita.title }}</h3>
-                    <p class="text-gray-600 mb-4 h-20">{{ receita.description|truncatewords:20 }}</p>
-                    <a href="{% url 'receita_detail' receita.id %}" class="inline-block bg-orange-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-orange-600 transition-colors">
-                        Ver Receita &rAarr;
-                        <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
-            </div>
-            {% endfor %}
-        
-           {% else %}
-              <p class="text-center text-gray-600 col-space-full">Nenhum resultado encontrado.</p>
-              {% endif %}
-
-              
-        </div>
-
-        {% if not resultados %}
-        <div class="text-center bg-white p-12 rounded-lg shadow-md mt-8">
-            <i class="fas fa-search fa-3x mb-4 text-gray-300"></i>
-            <h3 class="text-2xl font-semibold text-gray-700">Nenhuma Receita Encontrada</h3>
-            <p class="text-gray-500 mt-2">
-                {% if query %}
-                    Tente pesquisar por um termo diferente.
-                {% else %}
-                    Use a barra de busca para encontrar novas receitas.
-                {% endif %}
-            </p>
-        </div>
+{% extends 'receitas/base.html' %}
+{% block content %}
+<main class="container mx-auto p-6 mt-8 bg-white rounded-lg shadow-md">
+    <h2 class="text-2xl font-semibold mb-6 text-center">
+        {% if query %}
+        Resultados para: "{{ query }}"
+        {% else %}
+        Nenhum termo pesquisado.
         {% endif %}
+    </h2>
 
-    </main>
-
-    <footer class="mt-12 p-6 text-center text-gray-500 border-t border-gray-200">
-        <p>&copy; 2025 Minhas Receitas. Todos os Direitos Reservados a Isabella.</p>
-    </footer>
-
-</body>
-</html>
+    <div class="flex flex-wrap justify-center gap-6">
+    {% for receita in receitas %}
+        <div
+            class="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
+            {% if receita.image %}
+            <img src="{{ receita.image.url }}" alt="{{ receita.title }}"
+                class="w-full h-48 object-cover rounded-md mb-4">
+            {% endif %}
+            <h3 class="text-xl font-bold mb-2 text-gray-800">{{ receita.title }}</h3>
+            <p class="text-gray-600 mb-4">{{ receita.description|truncatewords:20 }}</p>
+            <a href="{% url 'receita_detail' receita.id %}"
+                class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-full transition-colors duration-300">Ver
+                Receita &rarr;</a>
+        </div>
+      {% empty %}
+        <p class="text-center text-gray-600 col-span-full">Nenhuma receita encontrada.</p>
+      {% endfor %}
+    </div>
+</main>
+{% endblock %}
+<footer class="mt-12 p-6 text-center text-gray-600">
+    <p>&copy; 2025 Minhas Receitas. Todos os direitos reservados a Leonardo.</p>
+</footer>

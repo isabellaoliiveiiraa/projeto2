@@ -1,0 +1,14 @@
+{%extends "base.html"%}
+{%block title%}Drinks - Minhas receitas{%endblock%}
+{%block content%}
+
+<h2 class="text-2xl font-bold mb-6">Receitas de Drinks</h2>
+<div class="grid grid-cols-l md:grid-cols-3 gap-6">
+    <div class="bg-gray-100 p-4 rounded-lg shadow hover:shadow-lg transition">
+        <img src="{% static 'img/morango-do-amor.jpg' %}" alt="Drinks" class="rounded-lg mb-4">
+        <h3 class="text-lg font-semibold">Bolo de Chocolate</h3>
+        <p class="text-gray-600 mb-4">
+            Sobremesa Clássica e Irresistível.</p>
+    </div>
+</div>
+{%endblock%}

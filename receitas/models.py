@@ -1,34 +1,30 @@
 from django.db import models
 
-# Create your models here.
 class Receita(models.Model):
-    # --- Campos do Modelo ---
-    title = models.CharField(max_length=200)
-    description = models.TextField()
-    ingredients = models.TextField()
-    instructions = models.TextField()
+    # 1. A lista de categorias foi movida para fora da classe antiga e o nome corrigido
+    CATEGORIAS = [
+        ('comida', 'Comida'),
+        ('sobremesa', 'Sobremesa'),
+        ('drinks', 'Drinks'),
+    ]
+
+    title = models.CharField("Titulo", max_length=200)
+    description = models.TextField("Descrição")
+    ingredients = models.TextField("Ingredientes")
+    instructions = models.TextField("Instruções")
     
-    # Campo para imagens das receitas
-    # Lembre-se de instalar a biblioteca Pillow: pip install Pillow
-    image = models.ImageField(upload_to='receitas/images/', blank=True, null=True)
+    image = models.ImageField("imagem", upload_to='receitas/images/', blank=True, null=True)
+
+    # 2. O 'choices' agora usa a variável correta 'CATEGORIAS'
+    categoria = models.CharField("Categoria", max_length=50, choices=CATEGORIAS, default='comida')
     
-    # Campos de data e hora automáticos
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    # --- Métodos do Modelo ---
     def __str__(self):
-        """
-        Retorna a representação em string do objeto, que neste caso é o título.
-        Isso é o que aparecerá no painel de administração do Django.
-        """
         return self.title
 
-    # --- Metadados do Modelo ---
     class Meta:
-        """
-        Configurações adicionais para o modelo.
-        """
         verbose_name = 'Receita'
         verbose_name_plural = 'Receitas'
-        ordering = ['-created_at']  # Ordena as receitas da mais nova para a mais antiga
+        ordering = ['-created_at']

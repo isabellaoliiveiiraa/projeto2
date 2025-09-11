@@ -1,9 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Sabores da Casa{% endblock %}</title>
+    <title>{% block title %}Minhas Receitas{% endblock %}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -20,14 +21,18 @@
                     <div class="text-4xl mr-4">
                         <i class="fas fa-mortar-pestle"></i>
                     </div>
-                    <h1 class="text-3xl font-bold">Sabores da Casa</h1>
+                    <h1 class="text-3xl font-bold">Minhas Receitas Deliciosas</h1>
                 </div>
             </div>
 
             <nav class="ml-auto relative z-10">
                 <a href="{% url 'home' %}" class="text-gray-300 hover:text-white mx-2">Home</a>
+                
+                {% for categoria in categorias %}
+                    <a href="{% url 'home' %}?categoria={{ categoria.0 }}" class="text-gray-300 hover:text-white mx-2">{{ categoria.1 }}</a>
+                {% endfor %}
             </nav>
-        </div>
+            </div>
     </header>
 
     <main class="container mx-auto p-6 bg-white rounded-lg shadow-md"> 
